@@ -34,5 +34,41 @@
 		"prefix": ["const int inf", "inf"],
 		"body": "const int inf = 0x3fffffff;",
 		"description": "claim inf"
+	},
+	"tarjon": {
+		"scope": "cpp",
+		"prefix": "tarjon",
+		"body": [
+			"int dfh[MaxV];",
+			"int low[MaxV];",
+			"bool ins[MaxV];",
+			"stack<int> st;",
+			"",
+			"void tarjon(int u) {",
+			"\tstatic int time = 0;",
+			"\tdfh[u] = low[u] = ++time;",
+			"\tst.push(u);",
+			"\tins[u] = true;",
+			"",
+			"\tfor (auto v : G[u]) {",
+			"\t\tif (dfh[v] == -1) {",
+			"\t\t\ttarjon(v);",
+			"\t\t\tlow[u] = min(low[u], low[v]);",
+			"\t\t} else if (ins[v] == true) {",
+			"\t\t\tlow[u] = min(low[u], dfh[v]);",
+			"\t\t}",
+			"\t}",
+			"",
+			"\tif (low[u] == dfh[u]) {",
+			"\t\tint w = 0;",
+			"\t\tdo {",
+			"\t\t\tw = st.top();",
+			"\t\t\tins[w] = false;",
+			"\t\t\tst.pop();",
+			"\t\t}  while(w != u);",
+			"\t}",
+			"}"
+		],
+		"description": "tarjon code template"
 	}
 }
