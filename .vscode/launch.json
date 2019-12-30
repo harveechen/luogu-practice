@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "(msvc) Launch Redirect",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/main.exe",
+        "args": [
+          "<",
+          "input.txt",
+          ">",
+          "output.txt"
+        ],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "logging": {"moduleLoad": false},
+        "externalConsole": false
+      },
+      {
+        "name": "(msvc) Launch",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/main.exe",
+        "args": [        ],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "logging": {"moduleLoad": false},
+        "externalConsole": true
+      }
+    ]
+  }
